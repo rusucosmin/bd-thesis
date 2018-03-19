@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/rusucosmin/tensorflow/tensorflow/contrib/lite/java/demo/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/Users/rusucosmin/.android/build-cache/8e722557f7fbdb5bf4ba4022b0489939caa787de/output/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/Users/rusucosmin/tensorflow/tensorflow/contrib/lite/java/demo/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/rusucosmin/.android/build-cache/8e722557f7fbdb5bf4ba4022b0489939caa787de/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/rusucosmin/tensorflow/tensorflow/contrib/lite/java/demo/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/rusucosmin/.android/build-cache/8e722557f7fbdb5bf4ba4022b0489939caa787de/output/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/rusucosmin/tensorflow/tensorflow/contrib/lite/java/demo/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/rusucosmin/.android/build-cache/8e722557f7fbdb5bf4ba4022b0489939caa787de/output/res/layout-v21/notification_template_icon_group.xml"
+    }
+]

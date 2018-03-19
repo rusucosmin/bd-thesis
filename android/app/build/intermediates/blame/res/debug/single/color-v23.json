@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "/Users/rusucosmin/tensorflow/tensorflow/contrib/lite/java/demo/app/build/intermediates/res/merged/debug/color-v23/abc_btn_colored_borderless_text_material.xml",
+        "source": "/Users/rusucosmin/.android/build-cache/8e722557f7fbdb5bf4ba4022b0489939caa787de/output/res/color-v23/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/Users/rusucosmin/tensorflow/tensorflow/contrib/lite/java/demo/app/build/intermediates/res/merged/debug/color-v23/abc_color_highlight_material.xml",
+        "source": "/Users/rusucosmin/.android/build-cache/8e722557f7fbdb5bf4ba4022b0489939caa787de/output/res/color-v23/abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "/Users/rusucosmin/tensorflow/tensorflow/contrib/lite/java/demo/app/build/intermediates/res/merged/debug/color-v23/design_tint_password_toggle.xml",
+        "source": "/Users/rusucosmin/.android/build-cache/bbc9544295a841fc811627c2ccf8fc1a31d88156/output/res/color-v23/design_tint_password_toggle.xml"
+    },
+    {
+        "merged": "/Users/rusucosmin/tensorflow/tensorflow/contrib/lite/java/demo/app/build/intermediates/res/merged/debug/color-v23/abc_tint_edittext.xml",
+        "source": "/Users/rusucosmin/.android/build-cache/8e722557f7fbdb5bf4ba4022b0489939caa787de/output/res/color-v23/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/Users/rusucosmin/tensorflow/tensorflow/contrib/lite/java/demo/app/build/intermediates/res/merged/debug/color-v23/abc_tint_switch_track.xml",
+        "source": "/Users/rusucosmin/.android/build-cache/8e722557f7fbdb5bf4ba4022b0489939caa787de/output/res/color-v23/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/Users/rusucosmin/tensorflow/tensorflow/contrib/lite/java/demo/app/build/intermediates/res/merged/debug/color-v23/abc_tint_seek_thumb.xml",
+        "source": "/Users/rusucosmin/.android/build-cache/8e722557f7fbdb5bf4ba4022b0489939caa787de/output/res/color-v23/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/Users/rusucosmin/tensorflow/tensorflow/contrib/lite/java/demo/app/build/intermediates/res/merged/debug/color-v23/abc_btn_colored_text_material.xml",
+        "source": "/Users/rusucosmin/.android/build-cache/8e722557f7fbdb5bf4ba4022b0489939caa787de/output/res/color-v23/abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "/Users/rusucosmin/tensorflow/tensorflow/contrib/lite/java/demo/app/build/intermediates/res/merged/debug/color-v23/abc_tint_switch_thumb.xml",
+        "source": "/Users/rusucosmin/.android/build-cache/8e722557f7fbdb5bf4ba4022b0489939caa787de/output/res/color-v23/abc_tint_switch_thumb.xml"
+    },
+    {
+        "merged": "/Users/rusucosmin/tensorflow/tensorflow/contrib/lite/java/demo/app/build/intermediates/res/merged/debug/color-v23/abc_tint_btn_checkable.xml",
+        "source": "/Users/rusucosmin/.android/build-cache/8e722557f7fbdb5bf4ba4022b0489939caa787de/output/res/color-v23/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/Users/rusucosmin/tensorflow/tensorflow/contrib/lite/java/demo/app/build/intermediates/res/merged/debug/color-v23/abc_tint_spinner.xml",
+        "source": "/Users/rusucosmin/.android/build-cache/8e722557f7fbdb5bf4ba4022b0489939caa787de/output/res/color-v23/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/Users/rusucosmin/tensorflow/tensorflow/contrib/lite/java/demo/app/build/intermediates/res/merged/debug/color-v23/abc_tint_default.xml",
+        "source": "/Users/rusucosmin/.android/build-cache/8e722557f7fbdb5bf4ba4022b0489939caa787de/output/res/color-v23/abc_tint_default.xml"
+    }
+]
