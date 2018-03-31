@@ -41,4 +41,4 @@ Class name: "Student"
 | 4 | Conv2     | `14x14x3`   | `14x14x6`    |Second convolutiona layer, `6` `14x14x3` convolution layers, with a relu activation layer|
 | 5 | MaxPool2  | `14x14x6`   | `7x7x6`      |Second `2x2` max pooling layer|
 | 6 | FC        | `7x7x6`     | `10`         |Fully connected layer, looks at all the nodes and outputs 10 logits|
-r 7 | Softmax   | `10`        | `10`         |Last fully connected layer, produces the probability distribution of the classes|
+| 7 | Softmax   | `10`        | `10`         |Last fully connected layer, produces the probability distribution of the classes|
