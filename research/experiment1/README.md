@@ -50,7 +50,19 @@ Class name: "Student2"
 | # | Layer     | Input Shape | Output Shape | Description                                       |
 |---|-----------|-------------|--------------|---------------------------------------------------|
 | 1 | Input     | `N/A`       | `28x28x1`    |Input layer, `28x28 px` grayscale image            |
-| 2 | Conv1     | `28x28x1`   | `r8x28x3`    |First convolutional layer, `3` `5x5x1` convolution layers, with a relu activation function|
+| 2 | Conv1     | `28x28x1`   | `28x28x3`    |First convolutional layer, `3` `5x5x1` convolution layers, with a relu activation function|
 | 3 | MaxPool1  | `28x28x3`   | `14x14x3`    |First `2x2` max pooling layer|
 | 4 | FC        | `14x14x3`   | `10`         |Fully connected layer, looks at all the nodes and outputs 10 logits|
+| 5 | Softmax   | `10`        | `10`         |Last fully connected layer, produces the probability distribution of the classes|
+
+### Student3 model
+
+Class name: "Student3"
+
+| # | Layer     | Input Shape | Output Shape | Description                                       |
+|---|-----------|-------------|--------------|---------------------------------------------------|
+| 1 | Input     | `N/A`       | `28x28x1`    |Input layer, `28x28 px` grayscale image            |
+| 2 | Conv1     | `28x28x1`   | `28x28x2`    |First convolutional layer, `2` `5x5x1` convolution layers, with a relu activation function|
+| 3 | MaxPool1  | `28x28x2`   | `14x14x2`    |First `2x2` max pooling layer|
+| 4 | FC        | `14x14x2`   | `10`         |Fully connected layer, looks at all the nodes and outputs 10 logits|
 | 5 | Softmax   | `10`        | `10`         |Last fully connected layer, produces the probability distribution of the classes|
