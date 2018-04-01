@@ -6,9 +6,9 @@ import numpy as np
 import tensorflow as tf
 
 
-class Student(Model):
+class Student2(Model):
   def __init__(self, name):
-    print("Student::__init__")
+    print("Student2::__init__")
     super().__init__(name)
 
     # placeholders for input and output variables in the dataset (x = features, y = labels)
@@ -32,22 +32,13 @@ class Student(Model):
     # add max_pooling layer
     self.h_pool1 = Model.max_pool_2x2(self.h_conv1)
 
-    # create the second convolutional layer
-    self.W_conv2 = Model.weight_variable([5, 5, 3, 6])
-    self.b_conv2 = Model.bias_variable([6])
-
-    # stack it on top of the first one
-    self.h_conv2 = tf.nn.relu(Model.conv2d(self.h_pool1, self.W_conv2) + self.b_conv2)
-    # add max_pooling 2x2 layer
-    self.h_pool2 = Model.max_pool_2x2(self.h_conv2)
-
     # create the fully connected layer
-    self.W_fc1 = Model.weight_variable([7 * 7 * 6, 10])
+    self.W_fc1 = Model.weight_variable([14 * 14 * 3, 10])
     self.b_fc1 = Model.bias_variable([10])
 
     # reshape the pooling layer to be flat
-    self.h_pool2_flat = tf.reshape(self.h_pool2, [-1, 7 * 7 * 6])
-    self.y_conv = tf.matmul(self.h_pool2_flat, self.W_fc1) + self.b_fc1
+    self.h_pool1_flat = tf.reshape(self.h_pool1, [-1, 14 * 14 * 3])
+    self.y_conv = tf.matmul(self.h_pool1_flat, self.W_fc1) + self.b_fc1
 
     # learning rate
     self.learning_rate = 0.0001
@@ -60,7 +51,7 @@ class Student(Model):
     self.accuracy = tf.reduce_mean(tf.cast(self.correct_prediction, tf.float32))
 
   def train(self, mnist):
-    print("Teacher::train")
+    print("Student2::train")
 
     n_epochs = 50
     batch_size = 50
@@ -75,7 +66,7 @@ class Student(Model):
       for epoch in range(n_epochs):
           x_shuffle, y_shuffle \
                   = shuffle(mnist.train.images, mnist.train.labels)
-          print("Starting training epoch %d" % epoch)
+          print("Starting training opoch %d" % epoch)
           for i in range(n_batches):
               start = i * batch_size
               end = start + batch_size
@@ -107,5 +98,5 @@ class Student(Model):
 
 
   def test(self, x_test, y_test):
-    print("Teacher::test")
+    print("Student2::test")
 
