@@ -80,7 +80,7 @@ class Student(Model):
       for epoch in range(n_epochs):
           x_shuffle, y_shuffle \
                   = shuffle(mnist.train.images, mnist.train.labels)
-          print("Starting training opoch %d" % epoch)
+          print("Starting training epoch %d" % epoch)
           for i in range(n_batches):
               start = i * batch_size
               end = start + batch_size

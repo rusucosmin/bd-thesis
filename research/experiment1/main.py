@@ -6,5 +6,6 @@ t = Teacher("teacher")
 students = [Student("student")]
 c = Controller(t, students)
 
+c.trainTeacher()
 c.trainStudents()
 
