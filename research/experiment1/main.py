@@ -10,4 +10,5 @@ c = Controller(t, students)
 
 c.trainTeacher()
 c.trainStudents()
+c.distillate()
 

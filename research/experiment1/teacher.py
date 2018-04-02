@@ -69,6 +69,9 @@ class Teacher(Model):
     self.train_step = tf.train.AdamOptimizer(self.learning_rate).minimize(self.cross_entropy)
     self.correct_prediction = tf.equal(tf.argmax(self.y_conv, 1), tf.argmax(self.y_, 1))
     self.accuracy = tf.reduce_mean(tf.cast(self.correct_prediction, tf.float32))
+    # soft targets
+    self.temp= tf.placeholder(tf.float32)
+    self.y_soft_target = Model.softmax_with_temperature(self.y_conv, temp=self.temp)
 
   def train(self, mnist):
     print("Teacher::train")
@@ -120,6 +123,32 @@ class Teacher(Model):
 
     return (losses, accs, test_accs)
 
+  def softTargets(self, T, mnist):
+
+    n_epochs = 50
+    batch_size = 50
+    n_batches = len(mnist.train.images) // batch_size
+
+    with tf.Session() as sess:
+      sess.run(tf.global_variables_initializer())
+      print("Accuracy on the test set")
+      print(sess.run(self.accuracy, feed_dict = {
+          self.x: mnist.test.images,
+          self.y_: mnist.test.labels,
+          self.keep_prob: 1.0 }))
+      for t in T:
+        print("Generating soft targets at T = %d" % t)
+        _soft_targets = []
+        for i in range(n_batches):
+          start = i * batch_size
+          end = start + batch_size
+          batch_x = mnist.train.images[start:end]
+          soft_target = sess.run(self.y_soft_target, feed_dict = {
+              self.x: batch_x,
+              self.keep_prob: 1.0,
+              self.temp: t })
+          _soft_targets.append(soft_target)
+        np.save("soft-targets-%d.npy" % t, soft_targets)
 
   def test(self, x_test, y_test):
     print("Teacher::test")

@@ -19,8 +19,10 @@ class Controller:
     print("trainingTeacher")
     self.teacher.train(self.mnist)
 
-  def distillate(self, teacher, student):
-    print("distillating %s to %s" % (teacher, student))
+  def distillate(self):
+    print("distillating")
+    T = [1, 3, 6, 9, 10]
+    self.teacher.softTargets(T, self.mnist)
 
   def run(self):
     print("Controller::run")
