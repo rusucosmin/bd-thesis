@@ -35,5 +35,15 @@ class Model:
     return tf.nn.max_pool(x, ksize=[1, 2, 2, 1],
             strides = [1, 2, 2, 1], padding='SAME')
 
+  def save(self, sess):
+    print("Saving to" + (self.name + "/" + self.name + ".ckpt"))
+    saver = tf.train.Saver()
+    saver.save(sess, self.name + "/" + self.name + ".ckpt")
+
+  def restore(self, sess):
+    print("Loading from" + (self.name + "/" + self.name + ".ckpt"))
+    saver = tf.train.Saver()
+    saver.restore(sess, self.name + "/" + self.name + ".ckpt")
+
   def __str__(self):
     return self.name

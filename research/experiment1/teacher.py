@@ -120,6 +120,8 @@ class Teacher(Model):
           losses.append(train_loss)
           accs.append(train_accuracy)
           test_accs.append(test_accuracy)
+      # save the model
+      super().save(sess)
 
     return (losses, accs, test_accs)
 
@@ -130,7 +132,7 @@ class Teacher(Model):
     n_batches = len(mnist.train.images) // batch_size
 
     with tf.Session() as sess:
-      sess.run(tf.global_variables_initializer())
+      super().restore(sess)
       print("Accuracy on the test set")
       print(sess.run(self.accuracy, feed_dict = {
           self.x: mnist.test.images,
