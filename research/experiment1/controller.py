@@ -23,6 +23,12 @@ class Controller:
     print("distillating")
     T = [1, 3, 6, 9, 10]
     self.teacher.softTargets(T, self.mnist)
+    for student in self.students:
+      for t in T:
+        student.distillate(
+            self.mnist,
+            np.load("soft-targets-%d" % t),
+            t)
 
   def run(self):
     print("Controller::run")

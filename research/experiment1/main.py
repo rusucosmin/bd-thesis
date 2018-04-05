@@ -5,7 +5,7 @@ from student3 import Student3
 from controller import Controller
 
 t = Teacher("teacher")
-students = [Student3("student3"), Student("student"), Student2("student2")]
+students = [Student("student")] #, Student2("student2"), Student3("student3")]
 c = Controller(t, students)
 
 c.trainTeacher()

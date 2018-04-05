@@ -36,12 +36,12 @@ class Model:
             strides = [1, 2, 2, 1], padding='SAME')
 
   def save(self, sess):
-    print("Saving to" + (self.name + "/" + self.name + ".ckpt"))
+    print("Saving to " + (self.name + "/" + self.name + ".ckpt"))
     saver = tf.train.Saver()
     saver.save(sess, self.name + "/" + self.name + ".ckpt")
 
   def restore(self, sess):
-    print("Loading from" + (self.name + "/" + self.name + ".ckpt"))
+    print("Loading from " + (self.name + "/" + self.name + ".ckpt"))
     saver = tf.train.Saver()
     saver.restore(sess, self.name + "/" + self.name + ".ckpt")
 
