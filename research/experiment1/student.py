@@ -116,7 +116,7 @@ class Student(Model):
     # hard target
     y = tf.nn.softmax(self.y_conv)
     # soft target
-    y_soft_target = softmax_with_temperature(self.y_conv, temp=T)
+    y_soft_target = Model.softmax_with_temperature(self.y_conv, temp=T)
 
     # loss for each of them
     loss_hard_target = -tf.reduce_sum(self.y_ * tf.log(y), reduction_indices=[1])
@@ -146,31 +146,31 @@ class Student(Model):
           batch_x, batch_y, batch_soft_targets \
               = x_shuffle[start:end], y_shuffle[start:end], soft_targets_shuffle[start:end]
           sess.run(train_step, feed_dict = {
-              x: batch_x,
-              y_: batch_y,
-              soft_target_: batch_soft_targets,
-              T: TEMP })
-          x_shuffle, y_shuffle, soft_targets_shuffle \
-                  = shuffle(mnist.train.images, mnist.train.labels, soft_targets)
-          batch_x, batch_y, batch_soft_targets \
-                  = x_shuffle[0:1000], y_shuffle[0:1000], soft_targets_shuffle[0:1000]
-          train_loss = sess.run(loss, feed_dict = {
-              x: batch_x,
-              y_: batch_y,
-              soft_target_: batch_soft_targets,
-              T: TEMP })
-          train_accuracy = sess.run(self.accuracy, feed_dict = {
               self.x: batch_x,
-              self.y_: batch_y })
-          test_accuracy = sess.run(self.accuracy, feed_dict = {
-              self.x: mnist.test.images,
-              self.y_: mnist.test.labels })
-          print("Distillation: Epoch : %i, Loss : %f, Accuracy: %f, Test accuracy: %f" % (
-              epoch + 1, train_loss, train_accuracy, test_accuracy))
-          losses.append(train_loss)
-          accs.append(train_accuracy)
-          test_accs.append(test_accuracy)
-        super().save(sess)
+              self.y_: batch_y,
+              soft_target_: batch_soft_targets,
+              T: TEMP })
+        x_shuffle, y_shuffle, soft_targets_shuffle \
+            = shuffle(mnist.train.images, mnist.train.labels, soft_targets)
+        batch_x, batch_y, batch_soft_targets \
+            = x_shuffle[0:1000], y_shuffle[0:1000], soft_targets_shuffle[0:1000]
+        train_loss = sess.run(loss, feed_dict = {
+            self.x: batch_x,
+            self.y_: batch_y,
+            soft_target_: batch_soft_targets,
+            T: TEMP })
+        train_accuracy = sess.run(self.accuracy, feed_dict = {
+            self.x: batch_x,
+            self.y_: batch_y })
+        test_accuracy = sess.run(self.accuracy, feed_dict = {
+            self.x: mnist.test.images,
+            self.y_: mnist.test.labels })
+        print("Distillation: Epoch : %i, Loss : %f, Accuracy: %f, Test accuracy: %f" % (
+            epoch + 1, train_loss, train_accuracy, test_accuracy))
+        losses.append(train_loss)
+        accs.append(train_accuracy)
+        test_accs.append(test_accuracy)
+      super().save(sess)
 
     return [losses, accs, test_accs]
 

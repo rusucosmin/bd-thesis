@@ -1,4 +1,5 @@
 import tensorflow as tf
+import numpy as np
 from tensorflow.examples.tutorials.mnist import input_data
 
 class Controller:
@@ -27,7 +28,7 @@ class Controller:
       for t in T:
         student.distillate(
             self.mnist,
-            np.load("soft-targets-%d" % t),
+            np.load("soft-targets-%d.npy" % t),
             t)
 
   def run(self):

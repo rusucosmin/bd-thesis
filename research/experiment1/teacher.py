@@ -150,7 +150,8 @@ class Teacher(Model):
               self.keep_prob: 1.0,
               self.temp: t })
           _soft_targets.append(soft_target)
-        np.save("soft-targets-%d.npy" % t, _soft_targets)
+        soft_targets = np.c_[_soft_targets].reshape(55000, 10)
+        np.save("soft-targets-%d.npy" % t, soft_targets)
 
   def test(self, x_test, y_test):
     print("Teacher::test")
