@@ -1,10 +1,12 @@
 import argparse
+import matplotlib.pyplot as plt
 
 from teacher import Teacher
 from student import Student
 from student2 import Student2
 from student3 import Student3
 from controller import Controller
+
 
 parser = argparse.ArgumentParser(
     description="experiment1 of the research project")
@@ -19,14 +21,65 @@ parser.add_argument("-p", "--plot",
 
 args = parser.parse_args()
 
-t = Teacher("teacher")
-students = [Student("student"), Student2("student2"), Student3("student3")]
-print(args.plot)
-c = Controller(t, students)
+if args.trainTeacher or args.trainStudents or args.distillate:
+  t = Teacher("teacher")
+  students = [Student("student"), Student2("student2"), Student3("student3")]
+  c = Controller(t, students, plot=args.plot)
 if args.trainTeacher:
-  c.trainTeacher()
+  data = c.trainTeacher()
+  if args.plot:
+    plotTeacher(data[2])
 if args.trainStudents:
-  c.trainStudents()
+  data = c.trainStudents()
+  if args.plot:
+    plotStudents(data)
 if args.distillate:
-  c.distillate(plot=args.plot)
+  c.distillate()
+  if args.plot:
+    plotDistillation()
 
+def plotTeacher(test_accs):
+  plt.style.use('ggplot')
+  plt.plot()
+  plt.title("Accuracy of teacher")
+  plt.xlabel("Epochs")
+  plt.ylabel("Accuracy")
+  plt.plot(range(1, len(test_accs)+1), test_accs, label='Accuracy')
+  plt.legend()
+  plt.savefig("teacher_accuracy.png")
+  plt.plot()
+
+def plotStudents(data):
+  plt.style.use('ggplot')
+  plt.clf()
+  plt.plot()
+  plt.title("Accuracy of students")
+  plt.xlabel("Epochs")
+  plt.ylabel("Accuracy")
+  for student_data in data:
+    name = student_data['name']
+    train_data= student_data['data']
+    plt.plot(range(1, len(train_data[2])+1), train_data[2], label='Accuracy of %s' % name)
+  plt.legend()
+  plt.savefig("students_accuracy.png")
+
+def plotDistillation(data):
+  for student_data in data:
+    name = student_data['name']
+    plt.style.use('ggplot')
+    plt.clf()
+    plt.plot()
+    plt.title("Accuracy of %s" % name)
+    plt.xlabel("Epochs")
+    plt.ylabel("Accuracy")
+    for exp in student_data['data']:
+      t = exp['t']
+      train_data = exp['data']
+      plt.plot(range(1, len(train_data[2])+1), train_data[2], label='Accuracy of %s at t = %d' % (name, t))
+    plt.legend()
+    plt.savefig("distillation_%s_accuracy.png" % name)
+
+#plotTeacher([1, 2, 3])
+#plotStudents([{'name': 'student1', 'data': [[1, 2, 3], [1, 2, 3], [3, 3, 3]]}, {'name': 'student2', 'data': [[], [], [2, 3, 4]]}])
+#plotDistillation([{'name': 'student1', 'data': [{'t': 1, 'data': [[], [], [1, 2, 3] ]}, {'t': 2, 'data': [[], [], [2, 3, 4]] } ]},
+#                {'name': 'student2', 'data': [{'t': 1, 'data': [[], [], [1, 2, 3] ]}]}])

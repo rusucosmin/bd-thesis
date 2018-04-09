@@ -5,7 +5,6 @@ from sklearn.utils import shuffle
 import numpy as np
 import tensorflow as tf
 
-
 class Student(Model):
   def __init__(self, name):
     print("Student::__init__")
@@ -126,7 +125,8 @@ class Student(Model):
 
     # total loss
     loss = tf.reduce_mean(
-        tf.square(T) * loss_hard_target + tf.square(T) * loss_soft_target)
+        loss_soft_target)
+        #tf.square(T) * loss_hard_target + tf.square(T) * loss_soft_target)
 
     # train step
     train_step = tf.train.AdamOptimizer(self.learning_rate).minimize(loss)
