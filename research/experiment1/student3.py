@@ -96,6 +96,8 @@ class Student3(Model):
 
     return (losses, accs, test_accs)
 
+  def distillate(self, mnist, soft_targets, TEMP):
+    pass
 
   def test(self, x_test, y_test):
     print("Student3::test")

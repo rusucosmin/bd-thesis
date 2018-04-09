@@ -1,3 +1,5 @@
+teacher/
+student/
 MNIST_data/
 __pycache__
 *.pyc
