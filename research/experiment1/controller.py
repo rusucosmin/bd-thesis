@@ -20,7 +20,7 @@ class Controller:
     print("trainingTeacher")
     self.teacher.train(self.mnist)
 
-  def distillate(self):
+  def distillate(self, plot):
     print("distillating")
     T = [1, 3, 6, 9, 10]
     self.teacher.softTargets(T, self.mnist)

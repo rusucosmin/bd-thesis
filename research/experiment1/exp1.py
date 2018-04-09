@@ -14,16 +14,19 @@ parser.add_argument("-s", "--trainStudents",
     help="train students", action="store_true")
 parser.add_argument("-d", "--distillate",
     help="distillate", action="store_true")
+parser.add_argument("-p", "--plot",
+    help="plots the data", action="store_true")
 
 args = parser.parse_args()
 
 t = Teacher("teacher")
 students = [Student("student"), Student2("student2"), Student3("student3")]
+print(args.plot)
 c = Controller(t, students)
 if args.trainTeacher:
   c.trainTeacher()
-elif args.trainStudents:
+if args.trainStudents:
   c.trainStudents()
-elif args.distillate:
-  c.distillate()
+if args.distillate:
+  c.distillate(plot=args.plot)
 
