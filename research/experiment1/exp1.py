@@ -24,7 +24,7 @@ args = parser.parse_args()
 if args.trainTeacher or args.trainStudents or args.distillate:
   t = Teacher("teacher")
   students = [Student("student"), Student2("student2"), Student3("student3")]
-  c = Controller(t, students, plot=args.plot)
+  c = Controller(t, students, verbose=True)
 if args.trainTeacher:
   data = c.trainTeacher()
   if args.plot:
