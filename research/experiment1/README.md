@@ -32,9 +32,9 @@ Class name: "Teacher"
 
 #### Training results
 
-![distllation student accuracy][https://raw.githubusercontent.com/rusucosmin/bsc/master/research/experiment1/teacher_accuracy.png]
+![teacher accuracy](https://raw.githubusercontent.com/rusucosmin/bsc/master/research/experiment1/teacher_accuracy.png "Teacher accuracy")
 
-![distllation student accuracy][https://raw.githubusercontent.com/rusucosmin/bsc/master/research/experiment1/student_accuracy.png]
+![student accuracy](https://raw.githubusercontent.com/rusucosmin/bsc/master/research/experiment1/student_accuracy.png "Student accuracy")
 
 ### Student model
 
@@ -53,7 +53,7 @@ Class name: "Student"
 
 #### Training results
 
-![distllation student accuracy][https://raw.githubusercontent.com/rusucosmin/bsc/master/research/experiment1/distillation_student_accuracy.png]
+![distllation student accuracy](https://raw.githubusercontent.com/rusucosmin/bsc/master/research/experiment1/distillation_student_accuracy.png "Student distillation accuracy")
 
 ### Student2 model
 
