@@ -34,7 +34,7 @@ Class name: "Teacher"
 
 ![teacher accuracy](https://raw.githubusercontent.com/rusucosmin/bsc/master/research/experiment1/teacher_accuracy.png "Teacher accuracy")
 
-![student accuracy](https://raw.githubusercontent.com/rusucosmin/bsc/master/research/experiment1/student_accuracy.png "Student accuracy")
+![students accuracy](https://raw.githubusercontent.com/rusucosmin/bsc/master/research/experiment1/students_accuracy.png "Student accuracy")
 
 ### Student model
 
