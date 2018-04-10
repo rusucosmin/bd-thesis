@@ -1,3 +1,4 @@
+import time
 import argparse
 import matplotlib
 # Force matplotlib to not use any Xwindows backend.
@@ -17,7 +18,7 @@ def plotTeacher(test_accs):
   plt.ylabel("Accuracy")
   plt.plot(range(1, len(test_accs)+1), test_accs, label='Accuracy')
   plt.legend()
-  plt.savefig("teacher_accuracy.png")
+  plt.savefig("%d_teacher_accuracy.png" % int(time.time()))
   plt.plot()
 
 def plotStudents(data):
@@ -31,7 +32,7 @@ def plotStudents(data):
     train_data= student_data['data']
     plt.plot(range(1, len(train_data[2])+1), train_data[2], label='Accuracy of %s' % name)
   plt.legend()
-  plt.savefig("students_accuracy.png")
+  plt.savefig("%d_students_accuracy.png" % int(time.time()))
 
 def plotDistillation(data):
   for student_data in data:
@@ -46,7 +47,7 @@ def plotDistillation(data):
       train_data = exp['data']
       plt.plot(range(1, len(train_data[2])+1), train_data[2], label='Accuracy of %s at t = %d' % (name, t))
     plt.legend()
-    plt.savefig("distillation_%s_accuracy.png" % name)
+    plt.savefig("%d_distillation_%s_accuracy.png" % (name, int(time.time())))
 
 parser = argparse.ArgumentParser(
     description="experiment1 of the research project")
@@ -74,9 +75,9 @@ if args.trainStudents:
   if args.plot:
     plotStudents(data)
 if args.distillate:
-  c.distillate()
+  data = c.distillate()
   if args.plot:
-    plotDistillation()
+    plotDistillation(data)
 
 
 #plotTeacher([1, 2, 3])

@@ -4,3 +4,4 @@ MNIST_data/
 __pycache__
 *.pyc
 *.npy
+*.log

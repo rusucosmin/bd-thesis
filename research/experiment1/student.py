@@ -118,15 +118,18 @@ class Student(Model):
     y_soft_target = Model.softmax_with_temperature(self.y_conv, temp=T)
 
     # loss for each of them
-    loss_hard_target = -tf.reduce_sum(self.y_ * tf.log(y), reduction_indices=[1])
-    loss_soft_target = -tf.reduce_sum(
-        soft_target_ * tf.log(y_soft_target),
-        reduction_indices=[1])
+    loss_hard_target = tf.reduce_mean(
+        -tf.reduce_sum(
+            self.y_ * tf.log(y),
+            reduction_indices=[1]))
+
+    loss_soft_target = tf.reduce_mean(
+        -tf.reduce_sum(
+            soft_target_ * tf.log(y_soft_target),
+            reduction_indices=[1]))
 
     # total loss
-    loss = tf.reduce_mean(
-        loss_soft_target)
-        #tf.square(T) * loss_hard_target + tf.square(T) * loss_soft_target)
+    loss = loss_soft_target
 
     # train step
     train_step = tf.train.AdamOptimizer(self.learning_rate).minimize(loss)
