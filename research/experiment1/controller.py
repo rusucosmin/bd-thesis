@@ -29,7 +29,7 @@ class Controller:
   def distillate(self):
     if self.verbose:
       print("distillating")
-    T = [1, 3, 6, 9, 10]
+    T = [1, 3, 6, 7, 8, 9, 10, 11, 12, 15, 20]
     self.teacher.softTargets(T, self.mnist)
     data = []
     for student in self.students:

@@ -4,11 +4,18 @@ class Model:
   def __init__(self, name):
     self.name = name
 
+  @staticmethod
+  def Session():
+    config = tf.ConfigProto()
+    config.gpu_options.allow_growth = True
+    session = tf.Session(config=config)
+    return session
+
   # will return a new weight variables containing a random, variable in the interval [-0.2, 0.2]
   @staticmethod
   def weight_variable(shape):
-      initial = tf.truncated_normal(shape, stddev = 0.1)
-      return tf.Variable(initial)
+    initial = tf.truncated_normal(shape, stddev = 0.1)
+    return tf.Variable(initial)
 
   # will return a new bias variable with a value of 0.1
   @staticmethod

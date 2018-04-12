@@ -47,7 +47,7 @@ def plotDistillation(data):
       train_data = exp['data']
       plt.plot(range(1, len(train_data[2])+1), train_data[2], label='Accuracy of %s at t = %d' % (name, t))
     plt.legend()
-    plt.savefig("%d_distillation_%s_accuracy.png" % (name, int(time.time())))
+    plt.savefig("%d_distillation_%s_accuracy.png" % (int(time.time()), name))
 
 parser = argparse.ArgumentParser(
     description="experiment1 of the research project")
@@ -65,6 +65,7 @@ args = parser.parse_args()
 if args.trainTeacher or args.trainStudents or args.distillate:
   t = Teacher("teacher")
   students = [Student("student"), Student2("student2"), Student3("student3")]
+  students = [Student2("student2"), Student3("student3")]
   c = Controller(t, students, verbose=True)
 if args.trainTeacher:
   data = c.trainTeacher()

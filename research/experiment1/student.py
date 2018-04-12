@@ -69,7 +69,7 @@ class Student(Model):
     accs = []
     test_accs = []
 
-    with tf.Session() as sess:
+    with Model.Session() as sess:
       sess.run(tf.global_variables_initializer())
       for epoch in range(n_epochs):
           x_shuffle, y_shuffle \
@@ -138,7 +138,7 @@ class Student(Model):
     accs = []
     test_accs = []
 
-    with tf.Session() as sess:
+    with Model.Session() as sess:
       sess.run(tf.global_variables_initializer())
       for epoch in range(n_epochs):
         x_shuffle, y_shuffle, soft_targets_shuffle \

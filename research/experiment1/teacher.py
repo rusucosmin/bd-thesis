@@ -84,7 +84,7 @@ class Teacher(Model):
     accs = []
     test_accs = []
 
-    with tf.Session() as sess:
+    with Model.Session() as sess:
       sess.run(tf.global_variables_initializer())
       for epoch in range(n_epochs):
           x_shuffle, y_shuffle \
@@ -131,7 +131,7 @@ class Teacher(Model):
     batch_size = 50
     n_batches = len(mnist.train.images) // batch_size
 
-    with tf.Session() as sess:
+    with Model.Session() as sess:
       super().restore(sess)
       print("Accuracy on the test set")
       print(sess.run(self.accuracy, feed_dict = {
