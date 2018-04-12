@@ -16,6 +16,8 @@ both directly to MNIST and using distillation.
 
 Class name: "Teacher"
 
+#### Architecture
+
 | # | Layer     | Input Shape | Output Shape | Description                                       |
 |---|-----------|-------------|--------------|---------------------------------------------------|
 | 1 | Input     | `N/A`       | `28x28x1`    |Input layer, `28x28 px` grayscale image            |
@@ -28,11 +30,17 @@ Class name: "Teacher"
 | 8 | FC        | `1024`      | `10`         |Second fully connected layer - produces the logits|
 | 9 | Softmax   | `10`        | `10`         |Softmax layer - produces the probability distribution of the classes|
 
+#### Training results
+
+![teacher accuracy](https://raw.githubusercontent.com/rusucosmin/bsc/master/research/experiment1/teacher_accuracy.png "Teacher accuracy")
+
+![students accuracy](https://raw.githubusercontent.com/rusucosmin/bsc/master/research/experiment1/students_accuracy.png "Student accuracy")
 
 ### Student model
 
 Class name: "Student"
 
+#### Architecture
 | # | Layer     | Input Shape | Output Shape | Description                                       |
 |---|-----------|-------------|--------------|---------------------------------------------------|
 | 1 | Input     | `N/A`       | `28x28x1`    |Input layer, `28x28 px` grayscale image            |
@@ -42,6 +50,10 @@ Class name: "Student"
 | 5 | MaxPool2  | `14x14x6`   | `7x7x6`      |Second `2x2` max pooling layer|
 | 6 | FC        | `7x7x6`     | `10`         |Fully connected layer, looks at all the nodes and outputs 10 logits|
 | 7 | Softmax   | `10`        | `10`         |Last fully connected layer, produces the probability distribution of the classes|
+
+#### Training results
+
+![distllation student accuracy](https://raw.githubusercontent.com/rusucosmin/bsc/master/research/experiment1/distillation_student_accuracy.png "Student distillation accuracy")
 
 ### Student2 model
 
