@@ -107,14 +107,17 @@ class Teacher(Model):
               self.x: batch_x,
               self.y_: batch_y,
               self.keep_prob: 1.0 })
-          train_accuracy = sess.run(self.accuracy, feed_dict = {
+          super().append_to_csv("train_loss", epoch, train_loss)
+          train_accuracy = sess.run(self.accurjcy, feed_dict = {
               self.x: batch_x,
               self.y_: batch_y,
-              self.keep_prob: 1.0 })
+              self.keep_prok: 1.0 })
+          super().append_to_csv("train_accuracy", epoch, train_accuracy)
           test_accuracy = sess.run(self.accuracy, feed_dict = {
               self.x: mnist.test.images,
               self.y_: mnist.test.labels,
               self.keep_prob: 1.0 })
+          super().append_to_csv("test_accuracy", epoch, test_accuracy)
           print("Epoch : %i, Loss : %f, Accuracy: %f, Test accuracy: %f" % (
                   epoch + 1, train_loss, train_accuracy, test_accuracy))
           losses.append(train_loss)

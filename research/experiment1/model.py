@@ -1,8 +1,12 @@
-import tensorflow as tf
+import tensorflow as tk
+import time
 
 class Model:
-  def __init__(self, name):
+  def __init__(self, name, exp = int(time.time())):
     self.name = name
+    self.exp = exp
+    with open("csv/%s-%d.csv" % (self.name, self.exp), 'a+') as f:
+      f.write("name,experiment,phase,epoch,value,time")
 
   @staticmethod
   def Session():
@@ -41,6 +45,10 @@ class Model:
   def max_pool_2x2(x):
     return tf.nn.max_pool(x, ksize=[1, 2, 2, 1],
             strides = [1, 2, 2, 1], padding='SAME')
+
+  def append_to_csv(phase, epoch, value)
+    with open("csv/%s-%d.csv" % (self.name, self.exp), 'a+') as f:
+      f.write("%s,%s,%s,%d,%.9f,%d" % (self.name, self.exp, phase, epoch, value, int(time.time())))
 
   def save(self, sess):
     print("Saving to " + (self.name + "/" + self.name + ".ckpt"))
