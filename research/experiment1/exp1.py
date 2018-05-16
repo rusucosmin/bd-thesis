@@ -9,6 +9,8 @@ from teacher import Teacher
 from student import Student
 from student2 import Student2
 from student3 import Student3
+from student4 import Student4
+from student5 import Student5
 from controller import Controller
 
 def plotTeacher(test_accs):
@@ -59,12 +61,14 @@ parser.add_argument("-d", "--distillate",
     help="distillate", action="store_true")
 parser.add_argument("-p", "--plot",
     help="plots the data", action="store_true")
+parser.add_argument("-te", "--test",
+    help="prints the accuracy and confusion matrix for the models", action="store_true")
 
 args = parser.parse_args()
 
-if args.trainTeacher or args.trainStudents or args.distillate:
+if args.trainTeacher or args.trainStudents or args.distillate or args.test:
   t = Teacher("teacher")
-  students = [Student("student"), Student2("student2"), Student3("student3")]
+  students = [Student4("student4"), Student5("student5"), Student("student"), Student2("student2"), Student3("student3")]
   c = Controller(t, students, verbose=True)
 if args.trainTeacher:
   data = c.trainTeacher()
@@ -78,7 +82,8 @@ if args.distillate:
   data = c.distillate()
   if args.plot:
     plotDistillation(data)
-
+if args.test:
+  c.test([t] + students)
 
 #plotTeacher([1, 2, 3])
 #plotStudents([{'name': 'student1', 'data': [[1, 2, 3], [1, 2, 3], [3, 3, 3]]}, {'name': 'student2', 'data': [[], [], [2, 3, 4]]}])

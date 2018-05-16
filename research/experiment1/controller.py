@@ -42,6 +42,11 @@ class Controller:
       data.append(data_student)
     return data
 
+  def test(self, models):
+    for model in models:
+      C = model.test(self.mnist)
+      print(np.array_str(C, precision=0, suppress_small=True))
+
   def plotDistillation(self, test_accs, teacher_test_accs, fig_name):
     plt.plot()
     plt.title("MNIST accuracy")

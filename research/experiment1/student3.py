@@ -94,6 +94,12 @@ class Student3(Model):
           accs.append(train_accuracy)
           test_accs.append(test_accuracy)
 
+          super().append_to_csv("train_loss", epoch, train_loss)
+          super().append_to_csv("train_accuracy", epoch, train_accuracy)
+          super().append_to_csv("test_accuracy", epoch, test_accuracy)
+
+
+
     return (losses, accs, test_accs)
 
   def distillate(self, mnist, soft_targets, TEMP):
@@ -166,10 +172,45 @@ class Student3(Model):
         losses.append(train_loss)
         accs.append(train_accuracy)
         test_accs.append(test_accuracy)
+
+        super().append_to_csv("distillation_%d_train_loss" % TEMP, epoch, train_loss)
+        super().append_to_csv("distillation_%d_train_accuracy" % TEMP, epoch, train_accuracy)
+        super().append_to_csv("distillation_%d_test_accuracy" % TEMP, epoch, test_accuracy)
+
       super().save(sess)
 
     return [losses, accs, test_accs]
 
-  def test(self, x_test, y_test):
-    print("Student3::test")
+  def test(self, mnist):
+    batch_size = 50
+    n_batches = len(mnist.test.images) // batch_size
+    C = np.zeros([10, 10])
+    prediction = tf.argmax(self.y_conv, 1)
+    correct_answer = tf.argmax(self.y_, 1)
 
+    with Model.Session() as sess:
+      super().restore(sess)
+      print("Accuracy on the test set")
+      print(sess.run(self.accuracy, feed_dict = {
+          self.x: mnist.test.images,
+          self.y_: mnist.test.labels,
+          self.keep_prob: 1.0 }))
+      print("Generating confusion matrix for %s" % self.name)
+
+      for i in range(n_batches):
+        start = i * batch_size
+        end = start + batch_size
+        batch_x = mnist.test.images[start:end]
+        batch_y = mnist.test.labels[start:end]
+        predict = sess.run(prediction, feed_dict = {
+            self.x: batch_x,
+            self.y_: batch_y,
+            self.keep_prob: 1.0 })
+        answer = sess.run(correct_answer, feed_dict = {
+            self.x: batch_x,
+            self.y_: batch_y,
+            self.keep_prob: 1.0 })
+        for (i, j) in zip(predict, answer):
+          C[i][j] += 1
+
+    return C

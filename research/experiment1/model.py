@@ -1,4 +1,4 @@
-import tensorflow as tk
+import tensorflow as tf
 import time
 
 class Model:
@@ -6,7 +6,7 @@ class Model:
     self.name = name
     self.exp = exp
     with open("csv/%s-%d.csv" % (self.name, self.exp), 'a+') as f:
-      f.write("name,experiment,phase,epoch,value,time")
+      f.write("name,experiment,phase,epoch,value,time\n")
 
   @staticmethod
   def Session():
@@ -46,9 +46,14 @@ class Model:
     return tf.nn.max_pool(x, ksize=[1, 2, 2, 1],
             strides = [1, 2, 2, 1], padding='SAME')
 
-  def append_to_csv(phase, epoch, value)
+  # will return a new max pooling layer over 2x2 blocks
+  @staticmethod
+  def conv2d_stride2x2(x, W):
+    return tf.nn.conv2d(x, W, strides=[1, 2, 2, 1], padding='VALID')
+
+  def append_to_csv(self, phase, epoch, value):
     with open("csv/%s-%d.csv" % (self.name, self.exp), 'a+') as f:
-      f.write("%s,%s,%s,%d,%.9f,%d" % (self.name, self.exp, phase, epoch, value, int(time.time())))
+      f.write("%s,%s,%s,%d,%.9f,%d\n" % (self.name, self.exp, phase, epoch, value, int(time.time())))
 
   def save(self, sess):
     print("Saving to " + (self.name + "/" + self.name + ".ckpt"))

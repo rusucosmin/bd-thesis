@@ -108,10 +108,10 @@ class Teacher(Model):
               self.y_: batch_y,
               self.keep_prob: 1.0 })
           super().append_to_csv("train_loss", epoch, train_loss)
-          train_accuracy = sess.run(self.accurjcy, feed_dict = {
+          train_accuracy = sess.run(self.accuracy, feed_dict = {
               self.x: batch_x,
               self.y_: batch_y,
-              self.keep_prok: 1.0 })
+              self.keep_prob: 1.0 })
           super().append_to_csv("train_accuracy", epoch, train_accuracy)
           test_accuracy = sess.run(self.accuracy, feed_dict = {
               self.x: mnist.test.images,
@@ -156,6 +156,37 @@ class Teacher(Model):
         soft_targets = np.c_[_soft_targets].reshape(55000, 10)
         np.save("soft-targets-%d.npy" % t, soft_targets)
 
-  def test(self, x_test, y_test):
-    print("Teacher::test")
+  def test(self, mnist):
+    batch_size = 50
+    n_batches = len(mnist.test.images) // batch_size
+    C = np.zeros([10, 10])
+    prediction = tf.argmax(self.y_conv, 1)
+    correct_answer = tf.argmax(self.y_, 1)
+
+    with Model.Session() as sess:
+      super().restore(sess)
+      print("Accuracy on the test set")
+      print(sess.run(self.accuracy, feed_dict = {
+          self.x: mnist.test.images,
+          self.y_: mnist.test.labels,
+          self.keep_prob: 1.0 }))
+      print("Generating confusion matrix for %s" % self.name)
+
+      for i in range(n_batches):
+        start = i * batch_size
+        end = start + batch_size
+        batch_x = mnist.test.images[start:end]
+        batch_y = mnist.test.labels[start:end]
+        predict = sess.run(prediction, feed_dict = {
+            self.x: batch_x,
+            self.y_: batch_y,
+            self.keep_prob: 1.0 })
+        answer = sess.run(correct_answer, feed_dict = {
+            self.x: batch_x,
+            self.y_: batch_y,
+            self.keep_prob: 1.0 })
+        for (i, j) in zip(predict, answer):
+          C[i][j] += 1
+
+    return C
 

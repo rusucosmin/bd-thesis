@@ -1,2 +1,0 @@
-model_checkpoint_path: "student3.ckpt"
-all_model_checkpoint_paths: "student3.ckpt"

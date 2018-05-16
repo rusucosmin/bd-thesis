@@ -1,2 +1,8 @@
 *.swp
 *.swo
+
+__pycache__
+*.h5
+*.png
+*.csv
+*.npy
