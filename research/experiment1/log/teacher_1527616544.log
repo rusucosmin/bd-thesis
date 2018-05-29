@@ -1,0 +1,130 @@
+Teacher::__init__
+Student4:__init__
+Student5::__init__
+Student::__init__
+Student2::__init__
+Student3::__init__
+> Loading MNIST data...
+Extracting MNIST_data/train-images-idx3-ubyte.gz
+Extracting MNIST_data/train-labels-idx1-ubyte.gz
+Extracting MNIST_data/t10k-images-idx3-ubyte.gz
+Extracting MNIST_data/t10k-labels-idx1-ubyte.gz
+trainingTeacher
+Teacher::train
+Starting training epoch 0
+Epoch : 1, Loss : 0.146497, Accuracy: 0.948000, Test accuracy: 0.964800
+Starting training epoch 1
+Epoch : 2, Loss : 0.079636, Accuracy: 0.972000, Test accuracy: 0.975100
+Starting training epoch 2
+Epoch : 3, Loss : 0.098600, Accuracy: 0.972000, Test accuracy: 0.981700
+Starting training epoch 3
+Epoch : 4, Loss : 0.045557, Accuracy: 0.984000, Test accuracy: 0.984500
+Starting training epoch 4
+Epoch : 5, Loss : 0.035763, Accuracy: 0.980000, Test accuracy: 0.988300
+Starting training epoch 5
+Epoch : 6, Loss : 0.010618, Accuracy: 0.996000, Test accuracy: 0.986800
+Starting training epoch 6
+Epoch : 7, Loss : 0.029019, Accuracy: 0.984000, Test accuracy: 0.990000
+Starting training epoch 7
+Epoch : 8, Loss : 0.008646, Accuracy: 0.996000, Test accuracy: 0.990100
+Starting training epoch 8
+Epoch : 9, Loss : 0.034233, Accuracy: 0.988000, Test accuracy: 0.990900
+Starting training epoch 9
+Epoch : 10, Loss : 0.004960, Accuracy: 1.000000, Test accuracy: 0.990300
+Starting training epoch 10
+Epoch : 11, Loss : 0.024153, Accuracy: 0.992000, Test accuracy: 0.991700
+Starting training epoch 11
+Epoch : 12, Loss : 0.003119, Accuracy: 1.000000, Test accuracy: 0.991500
+Starting training epoch 12
+Epoch : 13, Loss : 0.005146, Accuracy: 0.996000, Test accuracy: 0.990600
+Starting training epoch 13
+Epoch : 14, Loss : 0.000901, Accuracy: 1.000000, Test accuracy: 0.991500
+Starting training epoch 14
+Epoch : 15, Loss : 0.005161, Accuracy: 0.996000, Test accuracy: 0.991700
+Starting training epoch 15
+Epoch : 16, Loss : 0.000632, Accuracy: 1.000000, Test accuracy: 0.992600
+Starting training epoch 16
+Epoch : 17, Loss : 0.001120, Accuracy: 1.000000, Test accuracy: 0.992400
+Starting training epoch 17
+Epoch : 18, Loss : 0.002089, Accuracy: 1.000000, Test accuracy: 0.991600
+Starting training epoch 18
+Epoch : 19, Loss : 0.002306, Accuracy: 1.000000, Test accuracy: 0.992400
+Starting training epoch 19
+Epoch : 20, Loss : 0.007242, Accuracy: 0.996000, Test accuracy: 0.992000
+Starting training epoch 20
+Epoch : 21, Loss : 0.001019, Accuracy: 1.000000, Test accuracy: 0.992200
+Starting training epoch 21
+Epoch : 22, Loss : 0.005824, Accuracy: 0.996000, Test accuracy: 0.991500
+Starting training epoch 22
+Epoch : 23, Loss : 0.000372, Accuracy: 1.000000, Test accuracy: 0.991200
+Starting training epoch 23
+Epoch : 24, Loss : 0.009891, Accuracy: 0.996000, Test accuracy: 0.991900
+Starting training epoch 24
+Epoch : 25, Loss : 0.000201, Accuracy: 1.000000, Test accuracy: 0.992700
+Starting training epoch 25
+Epoch : 26, Loss : 0.000455, Accuracy: 1.000000, Test accuracy: 0.992800
+Starting training epoch 26
+Epoch : 27, Loss : 0.001899, Accuracy: 1.000000, Test accuracy: 0.991900
+Starting training epoch 27
+Epoch : 28, Loss : 0.000338, Accuracy: 1.000000, Test accuracy: 0.991900
+Starting training epoch 28
+Epoch : 29, Loss : 0.002957, Accuracy: 1.000000, Test accuracy: 0.992600
+Starting training epoch 29
+Epoch : 30, Loss : 0.000091, Accuracy: 1.000000, Test accuracy: 0.992500
+Starting training epoch 30
+Epoch : 31, Loss : 0.000128, Accuracy: 1.000000, Test accuracy: 0.993700
+Starting training epoch 31
+Epoch : 32, Loss : 0.001807, Accuracy: 1.000000, Test accuracy: 0.993800
+Starting training epoch 32
+Epoch : 33, Loss : 0.000193, Accuracy: 1.000000, Test accuracy: 0.993200
+Starting training epoch 33
+Epoch : 34, Loss : 0.003691, Accuracy: 0.996000, Test accuracy: 0.993200
+Starting training epoch 34
+Epoch : 35, Loss : 0.000057, Accuracy: 1.000000, Test accuracy: 0.993400
+Starting training epoch 35
+Epoch : 36, Loss : 0.000093, Accuracy: 1.000000, Test accuracy: 0.992700
+Starting training epoch 36
+Epoch : 37, Loss : 0.000777, Accuracy: 1.000000, Test accuracy: 0.992100
+Starting training epoch 37
+Epoch : 38, Loss : 0.000177, Accuracy: 1.000000, Test accuracy: 0.992700
+Starting training epoch 38
+Epoch : 39, Loss : 0.000623, Accuracy: 1.000000, Test accuracy: 0.993500
+Starting training epoch 39
+Epoch : 40, Loss : 0.000310, Accuracy: 1.000000, Test accuracy: 0.992300
+Starting training epoch 40
+Epoch : 41, Loss : 0.000064, Accuracy: 1.000000, Test accuracy: 0.992700
+Starting training epoch 41
+Epoch : 42, Loss : 0.000013, Accuracy: 1.000000, Test accuracy: 0.993600
+Starting training epoch 42
+Epoch : 43, Loss : 0.000039, Accuracy: 1.000000, Test accuracy: 0.992600
+Starting training epoch 43
+Epoch : 44, Loss : 0.000235, Accuracy: 1.000000, Test accuracy: 0.993300
+Starting training epoch 44
+Epoch : 45, Loss : 0.000796, Accuracy: 1.000000, Test accuracy: 0.992700
+Starting training epoch 45
+Epoch : 46, Loss : 0.000054, Accuracy: 1.000000, Test accuracy: 0.994200
+Starting training epoch 46
+Epoch : 47, Loss : 0.000013, Accuracy: 1.000000, Test accuracy: 0.993000
+Starting training epoch 47
+Epoch : 48, Loss : 0.000012, Accuracy: 1.000000, Test accuracy: 0.992400
+Starting training epoch 48
+Epoch : 49, Loss : 0.000047, Accuracy: 1.000000, Test accuracy: 0.992600
+Starting training epoch 49
+Epoch : 50, Loss : 0.000011, Accuracy: 1.000000, Test accuracy: 0.993600
+Saving to teacher/teacher.ckpt
+testing teacher
+Loading from teacher/teacher.ckpt
+Accuracy on the test set
+0.9936
+Generating confusion matrix for teacher
+[[ 978.    0.    1.    0.    0.    2.    5.    0.    2.    0.]
+ [   0. 1133.    1.    0.    0.    0.    2.    2.    0.    2.]
+ [   0.    1. 1026.    0.    0.    0.    0.    2.    0.    0.]
+ [   0.    1.    1. 1009.    0.    7.    1.    0.    2.    0.]
+ [   0.    0.    0.    0.  976.    0.    1.    0.    0.    6.]
+ [   0.    0.    0.    0.    0.  881.    2.    0.    1.    2.]
+ [   0.    0.    0.    0.    1.    1.  947.    0.    0.    0.]
+ [   1.    0.    3.    0.    0.    0.    0. 1023.    1.    3.]
+ [   1.    0.    0.    1.    1.    0.    0.    1.  967.    0.]
+ [   0.    0.    0.    0.    4.    1.    0.    0.    1.  996.]]
+</confusion_matrix>
