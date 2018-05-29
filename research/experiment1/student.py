@@ -200,8 +200,7 @@ class Student(Model):
       print("Accuracy on the test set")
       print(sess.run(self.accuracy, feed_dict = {
           self.x: mnist.test.images,
-          self.y_: mnist.test.labels,
-          self.keep_prob: 1.0 }))
+          self.y_: mnist.test.labels }))
       print("Generating confusion matrix for %s" % self.name)
 
       for i in range(n_batches):
@@ -211,12 +210,10 @@ class Student(Model):
         batch_y = mnist.test.labels[start:end]
         predict = sess.run(prediction, feed_dict = {
             self.x: batch_x,
-            self.y_: batch_y,
-            self.keep_prob: 1.0 })
+            self.y_: batch_y })
         answer = sess.run(correct_answer, feed_dict = {
             self.x: batch_x,
-            self.y_: batch_y,
-            self.keep_prob: 1.0 })
+            self.y_: batch_y })
         for (i, j) in zip(predict, answer):
           C[i][j] += 1
 

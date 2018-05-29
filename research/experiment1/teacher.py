@@ -49,7 +49,7 @@ class Teacher(Model):
     self.h_pool2_flat = tf.reshape(self.h_pool2, [-1, 7*7*64])
     self.h_fc1 = tf.nn.relu(tf.matmul(self.h_pool2_flat, self.W_fc1) + self.b_fc1)
 
-    # add dropout to reduce overfittin
+    # add dropout to reduce overfittin
     self.keep_prob = tf.placeholder(tf.float32)
     self.h_fc1_drop = tf.nn.dropout(self.h_fc1, self.keep_prob)
 

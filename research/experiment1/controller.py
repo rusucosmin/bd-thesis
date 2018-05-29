@@ -39,6 +39,9 @@ class Controller:
             self.mnist,
             np.load("soft-targets-%d.npy" % t),
             t)})
+        print("<confusion_matrix>")
+        print("results for %s distillate with T = %d", student.name, T)
+        self.test([student])
       data.append(data_student)
     return data
 
@@ -46,6 +49,7 @@ class Controller:
     for model in models:
       C = model.test(self.mnist)
       print(np.array_str(C, precision=0, suppress_small=True))
+      print("</confusion_matrix>")
 
   def plotDistillation(self, test_accs, teacher_test_accs, fig_name):
     plt.plot()
