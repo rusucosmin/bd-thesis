@@ -74,6 +74,7 @@ if args.trainTeacher:
   data = c.trainTeacher()
   if args.plot:
     plotTeacher(data[2])
+
 if args.trainStudents:
   data = c.trainStudents()
   if args.plot:

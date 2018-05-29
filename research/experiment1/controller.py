@@ -16,6 +16,8 @@ class Controller:
     if self.verbose:
       print("trainingTeacher")
     data = self.teacher.train(self.mnist)
+    print("testing teacher")
+    self.test([self.teacher])
     return data
 
   def trainStudents(self):
