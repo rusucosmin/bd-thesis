@@ -34,8 +34,6 @@ public class ImageClassifierFloatInception extends ImageClassifier {
 
   @Override
   protected String getModelPath() {
-    // you can download this file from
-    // https://storage.googleapis.com/download.tensorflow.org/models/tflite/inception_v3_slim_2016_android_2017_11_10.zip
     return "inceptionv3_slim_2016.tflite";
   }
 
@@ -79,7 +77,6 @@ public class ImageClassifierFloatInception extends ImageClassifier {
 
   @Override
   protected float getNormalizedProbability(int labelIndex) {
-    // TODO the following value isn't in [0,1] yet, but may be greater. Why?
     return getProbability(labelIndex);
   }
 

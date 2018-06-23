@@ -90,7 +90,7 @@ public abstract class ImageClassifier {
       return "Uninitialized Classifier.";
     }
     convertBitmapToByteBuffer(bitmap);
-    // Here's where the magic happens!!!
+
     long startTime = SystemClock.uptimeMillis();
     runInference();
     long endTime = SystemClock.uptimeMillis();

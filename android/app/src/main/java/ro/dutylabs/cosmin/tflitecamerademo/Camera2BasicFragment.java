@@ -281,7 +281,6 @@ public class Camera2BasicFragment extends Fragment
   public void onActivityCreated(Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
     try {
-      // create either a new ImageClassifierQuantizedMobileNet or an ImageClassifierFloatInception
       classifier = new ImageClassifierQuantizedMobileNet(getActivity());
     } catch (IOException e) {
       Log.e(TAG, "Failed to initialize an image classifier.", e);
@@ -294,10 +293,6 @@ public class Camera2BasicFragment extends Fragment
     super.onResume();
     startBackgroundThread();
 
-    // When the screen is turned off and turned back on, the SurfaceTexture is already
-    // available, and "onSurfaceTextureAvailable" will not be called. In that case, we can open
-    // a camera and start preview from here (otherwise, we wait until the surface is ready in
-    // the SurfaceTextureListener).
     if (textureView.isAvailable()) {
       openCamera(textureView.getWidth(), textureView.getHeight());
     } else {
@@ -331,7 +326,6 @@ public class Camera2BasicFragment extends Fragment
       for (String cameraId : manager.getCameraIdList()) {
         CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraId);
 
-        // We don't use a front facing camera in this sample.
         Integer facing = characteristics.get(CameraCharacteristics.LENS_FACING);
         if (facing != null && facing == CameraCharacteristics.LENS_FACING_FRONT) {
           continue;
@@ -420,8 +414,7 @@ public class Camera2BasicFragment extends Fragment
     } catch (CameraAccessException e) {
       Log.e(TAG, "Failed to access Camera", e);
     } catch (NullPointerException e) {
-      // Currently an NPE is thrown when the Camera2API is used but not supported on the
-      // device this code runs.
+
       ErrorDialog.newInstance(getString(R.string.camera_error))
           .show(getChildFragmentManager(), FRAGMENT_DIALOG);
     }

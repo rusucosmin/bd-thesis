@@ -26,8 +26,6 @@ public class ImageClassifierQuantizedMobileNet extends ImageClassifier {
 
   @Override
   protected String getModelPath() {
-    // you can download this file from
-    // https://storage.googleapis.com/download.tensorflow.org/models/tflite/mobilenet_v1_224_android_quant_2017_11_08.zip
     return "mobilenet_quant_v1_224.tflite";
   }
 
